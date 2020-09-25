@@ -1,32 +1,38 @@
 const request = require("supertest");
-const superdebug = require("superdebug");
-const env = require("../../env/production.ENV");
+const BasePage = require("../basepage");
 
-class CardComponent{
+class CardComponent extends BasePage {
+  constructor() {
+    super();
+    this._resource = "/cards";
+  }
 
-    constructor(){
-        this._baseUrl = env.baseUrl;
-        this._auth = env.authKeys;
-    }
+  async getCardById(cardId) {
+    let response = await request(this._baseUrl)
+      .get(`${this._resource}/${cardId}`)
+      .query(this._auth)
+      .use(this._debug);
+    return response;
+  }
 
-    async getCardById(cardId){
-        let response = await request(this._baseUrl)
-            .get(`/cards/${cardId}`)
-            .query(this._auth)
-            .use(superdebug());
-        return response;
-    }
+  async createCard(name, listId) {
+    let body = { name: name, idList: listId };
+    let response = await request(this._baseUrl)
+      .post(`${this._resource}`)
+      .query(this._auth)
+      .send(body)
+      .use(this._debug);
 
-    async createCard(name, listId){
-        let body = { name: name, idList: listId };
-        let response = await request(this._baseUrl)
-          .post("/cards")
-          .query(this._auth)
-          .send(body)
-          .use(superdebug());
-        
-          return response;
-    }
+    return response;
+  }
+
+  async deleteCard(cardId) {
+    let response = await request(this._baseUrl)
+      .delete(`${this._resource}/${cardId}`)
+      .query(this._auth)
+      .use(this._debug);
+    return response;
+  }
 }
 
 module.exports = CardComponent;

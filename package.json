@@ -1,13 +1,13 @@
 {
   "name": "trello-cucumber-chai",
   "version": "1.0.0",
-  "description": "",
+  "description": "Testing Trello Pages through its API",
   "main": "index.js",
   "scripts": {
     "test": "cucumber-js --tags \"not @out\""
   },
   "keywords": [],
-  "author": "",
+  "author": "Lucas Amaral",
   "license": "ISC",
   "devDependencies": {
     "@cucumber/cucumber": "^7.0.0-rc.0",
