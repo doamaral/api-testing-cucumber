@@ -1,9 +1,9 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
 const expect = require('chai').expect;
 const faker = require('faker');
-const request = require("supertest");
-const superdebug = require("superdebug");
-const env = require('../../env/production.ENV');
+const CardComponent = require("../../page-objects/components/CardComponent");
+
+const card = new CardComponent();
 
 Given('existe um board {string}', function (boardId) {
     this.boardId = boardId;
@@ -22,26 +22,23 @@ When('requisita o card de id {string}', function (cardId) {
 });
 
 Then('o card é retornado com sucesso', async function () {
-    let response = await request(env.baseUrl)
-      .get(`/cards/${this.cardId}`)
-      .query(env.authKeys);
+    let response = await card.getCardById(this.cardId);
+    
     expect(response.status).to.eql(200)
     expect(response.body.id).to.eql(this.cardId);
 });
 
 When("realiza a criação de um card", async function () {
-    let body = { name: faker.name.findName(), idList: this.listId };
-    let responsePost = await request(env.baseUrl)
-      .post("/cards")
-      .query(env.authKeys)
-      .send(body);
-      this.newCardId = responsePost.body.id;
-    expect(responsePost.status).to.eql(200);
+    let response = await card.createCard(
+      "EITA " + faker.name.findName(),
+      this.listId
+    );
+    this.newCardId = response.body.id;
+    expect(response.status).to.eql(200);
 });
 
 Then('o card é listado com sucesso', async function () {
-    let response = await request(env.baseUrl)
-      .get(`/cards/${this.newCardId}`)
-      .query(env.authKeys);
+    let response = await card.getCardById(this.newCardId);
     expect(response.status).to.eql(200);
+    expect(response.body.id).to.eql(this.newCardId);
 });
