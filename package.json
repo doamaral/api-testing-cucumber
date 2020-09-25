@@ -1,0 +1,21 @@
+{
+  "name": "trello-cucumber-chai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js --tags \"not @out\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^7.0.0-rc.0",
+    "chai": "^4.2.0",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "faker": "^5.1.0",
+    "superdebug": "^2.2.0"
+  }
+}
