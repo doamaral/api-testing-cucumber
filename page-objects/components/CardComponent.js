@@ -1,7 +1,7 @@
 const request = require("supertest");
-const BasePage = require("../basepage");
+const BaseComponent = require("./baseComponent");
 
-class CardComponent extends BasePage {
+class CardComponent extends BaseComponent {
   constructor() {
     super();
     this._resource = "/cards";

@@ -17,9 +17,10 @@ Given("there is a list {string}", function (listId) {
 
 When("a card is created", async function () {
   let response = await card.createCard(faker.name.findName(), this.listId);
-  this.newCardId = response.body.id;
-  newCardId = this.newCardId;
-  expect(response.status).to.eql(200);
+  if (response.status == 200){
+    newCardId = response.body.id;
+  }
+  this.cardCreationResponse = response.status;
 });
 
 Then("this card is listed on that list", async function () {
@@ -27,6 +28,14 @@ Then("this card is listed on that list", async function () {
   expect(response.status).to.eql(200);
   expect(newCardId).to.eql(response.body.id);
   expect(this.listId).to.eql(response.body.idList);
+});
+
+Given("there is a not a list", function () {
+  this.listId = null;
+});
+
+Then("we get error", function () {
+  expect(this.cardCreationResponse).to.eql(400);
 });
 
 AfterAll(async function(){

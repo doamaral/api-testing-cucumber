@@ -1,5 +1,5 @@
 const request = require("supertest");
-const BasePage = require("../basepage");
+const BasePage = require("./baseComponent");
 
 class ListComponent extends BasePage {
   constructor() {
