@@ -1,5 +1,5 @@
 const superdebug = require("superdebug");
-const env = require("../../env/production.ENV");
+const env = require("../../env/secret.ENV");
 
 class BaseComponent{
     constructor(){
