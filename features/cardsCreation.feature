@@ -1,6 +1,8 @@
+@out
 Feature: Card Creation
     As a user, I wanto to create cards to list activities and get myself organized
     
+    @cardCreation
     Scenario: Card creation is OK
         Given there is a board "5f6d31957980df5232a28312"
         And there is a list "5f6d31a273b62b43fcebf053"

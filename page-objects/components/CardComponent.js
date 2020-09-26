@@ -26,6 +26,16 @@ class CardComponent extends BaseComponent {
     return response;
   }
 
+  async updateCard(idCard, obj) {
+    let response = await request(this._baseUrl)
+      .put(`${this._resource}/${idCard}`)
+      .query(this._auth)
+      .send(obj)
+      .use(this._debug);
+
+    return response;
+  }
+
   async deleteCard(cardId) {
     let response = await request(this._baseUrl)
       .delete(`${this._resource}/${cardId}`)

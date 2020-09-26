@@ -1,9 +1,10 @@
-const { Given, When, Then, AfterAll } = require("@cucumber/cucumber");
+const { Given, When, Then} = require("@cucumber/cucumber");
 const expect = require('chai').expect;
 const faker = require('faker');
-const CardComponent = require("../../page-objects/components/cardComponent");
+const DashboardPage = require("../../page-objects/dashboardPage");
 
-const card = new CardComponent();
+const dashboardPage = new DashboardPage();
+const card = dashboardPage.cardComponent;
 
 var newCardId = null;
 
@@ -37,8 +38,3 @@ Given("there is a not a list", function () {
 Then("we get error", function () {
   expect(this.cardCreationResponse).to.eql(400);
 });
-
-AfterAll(async function(){
-    let responseNewCard = await card.deleteCard(newCardId);
-    expect(responseNewCard.status).to.eql(200);
-})

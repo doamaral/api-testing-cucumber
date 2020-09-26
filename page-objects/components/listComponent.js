@@ -1,7 +1,7 @@
 const request = require("supertest");
-const BasePage = require("./baseComponent");
+const BaseComponent = require("./baseComponent");
 
-class ListComponent extends BasePage {
+class ListComponent extends BaseComponent {
   constructor() {
     super();
     this._resource = "/lists";
@@ -39,6 +39,16 @@ class ListComponent extends BasePage {
       .get(`${this._resource}/${listId}/board`)
       .query(this._auth)
       .use(this._debug);
+    return response;
+  }
+
+  async getCardsOnTheList(listId) {
+
+    let response = await request(this._baseUrl)
+      .get(`${this._resource}/${listId}/cards`)
+      .query(this._auth)
+      .query({fields: 'id'});
+
     return response;
   }
 }

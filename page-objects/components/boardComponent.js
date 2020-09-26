@@ -1,7 +1,7 @@
 const request = require("supertest");
-const BasePage = require("./baseComponent");
+const BaseComponent = require("./baseComponent");
 
-class BoardComponent extends BasePage {
+class BoardComponent extends BaseComponent {
   constructor() {
     super();
     this._resource = "/boards";
@@ -16,7 +16,7 @@ class BoardComponent extends BasePage {
   }
 
   async createBoard(name) {
-    let body = { name: name};
+    let body = { name: name };
     let response = await request(this._baseUrl)
       .post(`${this._resource}`)
       .query(this._auth)
