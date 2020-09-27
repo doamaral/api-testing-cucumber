@@ -1,6 +1,6 @@
 
 Feature: Card Creation
-    As a user, I wanto to create cards to list activities and get myself organized
+    As a user, I want to create cards to list activities and get myself organized
     
     Scenario: Card creation is OK
         Given there is a board "5f6d31957980df5232a28312"

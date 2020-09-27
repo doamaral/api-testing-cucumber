@@ -1,6 +1,7 @@
 const { AfterAll, BeforeAll } = require("@cucumber/cucumber");
 const expect = require("chai").expect;
 const faker = require("faker");
+
 const DashboardPage = require("../../page-objects/dashboardPage");
 
 const dashboardPage = new DashboardPage();

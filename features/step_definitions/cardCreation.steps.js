@@ -1,12 +1,13 @@
-const { Given, When, Then} = require("@cucumber/cucumber");
+const { Given, When, Then } = require("@cucumber/cucumber");
 const expect = require('chai').expect;
 const faker = require('faker');
+
 const DashboardPage = require("../../page-objects/dashboardPage");
 
 const dashboardPage = new DashboardPage();
 const card = dashboardPage.cardComponent;
 
-var newCardId = null;
+let newCardId;
 
 Given("there is a board {string}", function (boardId) {
   this.boardId = boardId;
