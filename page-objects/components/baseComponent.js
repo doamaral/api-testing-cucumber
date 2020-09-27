@@ -1,4 +1,5 @@
 const superdebug = require("superdebug");
+
 const env = require("../../env/secret.ENV");
 
 class BaseComponent{
