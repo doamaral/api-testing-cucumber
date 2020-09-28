@@ -9,7 +9,7 @@ const card = dashboardPage.cardComponent;
 
 let newCardId;
 
-Given("there is a board {string}", function (boardId) {
+Given("there is a board {string}", async function (boardId) {
   this.boardId = boardId;
 });
 

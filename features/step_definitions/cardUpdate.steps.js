@@ -6,7 +6,7 @@ const DashboardPage = require("../../page-objects/dashboardPage");
 
 const dashboardPage = new DashboardPage();
 const card = dashboardPage.cardComponent;
-var newCardId = null;
+let newCardId;
 
 Given('I have a card created with the name {string}', async function (cardName) {
     let response = await card.createCard(cardName, this.listId);
