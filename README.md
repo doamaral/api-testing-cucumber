@@ -13,3 +13,7 @@ In order to run, you need
   - hooks.js
   - cardCreation.feature
   - cardUpdate.feature
+
+## Extras
+- ESLint
+- Github Actions
