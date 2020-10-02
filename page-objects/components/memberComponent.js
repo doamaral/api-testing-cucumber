@@ -7,7 +7,7 @@ class MemberComponent extends BaseComponent{
         this._resource = "/members/me";
     }
 
-    getMemberBoards(){
+    async getMemberBoards(){
         let response = await request(this._baseUrl)
             .get(`${this._resource}/boards`)
             .query(this._auth)

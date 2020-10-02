@@ -1,6 +1,5 @@
-const { Given, When, Then, After } = require("@cucumber/cucumber");
+const { Given, When, Then } = require("@cucumber/cucumber");
 const expect = require('chai').expect;
-const faker = require('faker');
 
 const DashboardPage = require("../../page-objects/dashboardPage");
 
@@ -17,8 +16,8 @@ Given('I have a card created with the name {string}', async function (cardName) 
 });
 
 When('I update the card name to {string}', async function (newCardName) {
-    obj = {name: newCardName}
-    let response = await card.updateCard(newCardId, obj);
+    let obj = {name: newCardName}
+    await card.updateCard(newCardId, obj);
 });
 
 Then("the cards name get changed to {string}", async function (newCardName) {
