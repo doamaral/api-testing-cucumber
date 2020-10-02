@@ -1,4 +1,4 @@
-const CardComponent = require("./components/ardComponent");
+const CardComponent = require("./components/cardComponent");
 const ListComponent = require("./components/listComponent");
 
 class DashboardPage{
