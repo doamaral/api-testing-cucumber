@@ -1,6 +1,8 @@
 # api-testing-cucumber-supertest-chai
 Testing Trello API using CucumberJS, Supertest, FakerJS, ChaiJS and Page Objects
 
+[![Build Status](https://github.com/doamaral/api-testing-cucumber/workflows/CI/badge.svg)](https://github.com/doamaral/api-testing-cucumber/actions)
+
 ## Run
 In order to run, you need
  - Add API Key and Token provided by Trello as SO Environment variables
