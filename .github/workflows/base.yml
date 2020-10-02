@@ -7,8 +7,6 @@ name: CI
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -25,3 +23,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: Lint
         run: npm run lint
+      
+      # Runs a single command using the runners shell
+      - name: Run Test
+        run: npm test
+        env: 
+          YOUR_TRELLO_KEY: ${{ secrets.YOUR_TRELLO_KEY }}
+          YOUR_TRELLO_TOKEN: ${{ secrets.YOUR_TRELLO_TOKEN }}
