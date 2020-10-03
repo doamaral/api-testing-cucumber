@@ -1,4 +1,4 @@
-# api-testing-cucumber-supertest-chai
+# api-testing-cucumber
 Testing Trello API using CucumberJS, Supertest, FakerJS, ChaiJS and Page Objects
 
 [![Build Status](https://github.com/doamaral/api-testing-cucumber/workflows/CI/badge.svg)](https://github.com/doamaral/api-testing-cucumber/actions)
