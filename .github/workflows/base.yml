@@ -25,6 +25,10 @@ jobs:
         run: npm run lint
       
       # Runs a single command using the runners shell
+      - name: Build
+        run: npm ci
+      
+      # Runs a single command using the runners shell
       - name: Run Test
         run: npm test
         env: 
